@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QAirline Admin Panel</title>
+    <link rel="stylesheet" href="adminstyles.css" />
+    <style>
+      /* Base styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      header {
+        background-color: #003366;
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        background-color: #00509e;
+      }
+
+      nav ul li {
+        margin: 0 1rem;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        padding: 2rem;
+      }
+
+      section {
+        margin-bottom: 2rem;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      form label {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      form input,
+      form textarea,
+      form button {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      form button {
+        background-color: #003366;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      form button:hover {
+        background-color: #00509e;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem 0;
+        background-color: #003366;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>QAirline Admin Panel</h1>
+      <nav>
+        <ul>
+          <li><a href="#post-info">Đăng thông tin</a></li>
+          <li><a href="#add-airplanes">Nhập tàu bay</a></li>
+          <li><a href="#add-flights">Nhập chuyến bay</a></li>
+          <li><a href="#view-stats">Thống kê đặt vé</a></li>
+          <li><a href="#update-flights">Cập nhật chuyến bay</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="post-info">
+        <h2>Đăng thông tin</h2>
+        <form id="post-info-form" enctype="multipart/form-data">
+          <label for="info-title">Tiêu đề:</label>
+          <input type="text" name="info-title" id="info-title" required>
+          <br>
+          
+          <label for="info-content">Nội dung:</label>
+          <textarea name="info-content" id="info-content" required></textarea>
+          <br>
+        
+          <label for="info-picture">Chọn ảnh:</label>
+          <input type="file" name="info-picture" id="info-picture" required>
+          <br>
+          
+          <button type="submit">Đăng thông tin</button>
+        </form>
+      </section>
+      
+      <section id="delete-info">
+        <h2>Xóa thông tin</h2>
+        <form id="delete-info-form">
+          <input type="text" id="info-id" placeholder="Nhập ID thông tin để xóa">
+          <button type="submit">Xóa</button>
+        </form>
+        
+      </section>
+      
+      
+
+      <section id="add-flight">
+        <h2>Đăng Chuyến Bay Mới</h2>
+        <form id="add-flight-form">
+          <label for="fnumber">Mã chuyến bay:</label>
+          <input type="number" id="fnumber" name="fnumber" required>
+          <br>
+      
+          <label for="airplane_id">ID Máy bay:</label>
+          <input type="number" id="airplane_id" name="airplane_id" required>
+          <br>
+      
+          <label for="d_city">Thành phố khởi hành (ID):</label>
+          <input type="number" id="d_city" name="d_city" required>
+          <br>
+      
+          <label for="d_date_time">Thời gian khởi hành:</label>
+          <input type="datetime-local" id="d_date_time" name="d_date_time" required>
+          <br>
+      
+          <label for="a_city">Thành phố đến (ID):</label>
+          <input type="number" id="a_city" name="a_city" required>
+          <br>
+      
+          <label for="a_date_time">Thời gian đến:</label>
+          <input type="datetime-local" id="a_date_time" name="a_date_time" required>
+          <br>
+      
+          <label for="price">Giá vé:</label>
+          <input type="number" id="price" name="price" required>
+          <br>
+      
+          <button type="submit">Thêm chuyến bay</button>
+        </form>
+      </section>
+      
+      <section id="delete-flight">
+        <h2>Xóa Chuyến Bay</h2>
+        <form id="delete-flight-form">
+          <label for="flight-id">Nhập ID Chuyến Bay:</label>
+          <input type="number" id="flight-id" name="flight-id" required>
+          <br>
+          <button type="submit">Xóa Chuyến Bay</button>
+        </form>
+      </section>
+      
+
+      <section id="view-stats">
+        <h2>Thống kê đặt vé</h2>
+        <button id="generate-stats">Xem thống kê</button>
+        <div id="stats-display">
+          <!-- Booking statistics will display here -->
+        </div>
+      </section>
+      
+
+      <section id="delay-flight">
+        <h2>Delay Chuyến Bay</h2>
+        <form id="delay-flight-form">
+          <label for="delay-flight-id">Mã Chuyến Bay:</label>
+          <input type="number" id="delay-flight-id" name="delay-flight-id" required>
+          <br>
+          <label for="delay-hours">Số giờ delay:</label>
+          <input type="number" id="delay-hours" name="delay-hours" required>
+          <br>
+          <button type="submit">Cập nhật giờ khởi hành</button>
+        </form>
+      </section>
+      
+    </main>
+
+    <footer>
+      <p>&copy; 2024 QAirline</p>
+    </footer>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

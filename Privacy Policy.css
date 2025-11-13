@@ -1,0 +1,291 @@
+body {
+    font-family: "Roboto", sans-serif;
+    color: #123821;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+  }
+/* Header */
+.header1 {
+    background-color: #123821;
+    color: white;
+    padding: 16px 24px;
+  }
+  
+  .container1 {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-container1 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo1 {
+    height: 130px; /* Äiį»u chį»‰nh kĆ­ch thĘ°į»›c logo */
+    margin-right: 16px;
+  }
+  
+  .header-right1 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-right1 a {
+    margin-left: 16px;
+    color: #79817c;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .header-right1 a:hover {
+    color: #f8f7f1;
+    text-decoration: underline;
+  }
+  
+  .header-right1 a i {
+    margin-left: 5px;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+    background-color: #f8f7f1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #123821;
+    font-size: 16px;
+    margin: 0 20px;
+    position: relative;
+    font-weight: 600;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #a79132;
+  }
+  
+  /* Dropdown */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #f8f7f1;
+    min-width: 160px;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-item {
+    padding: 12px;
+    font-size: 14px;
+    color: #123821;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f8f7f1;
+  }
+  
+  /* Add icon to dropdown link */
+  .navbar i {
+    margin-left: 5px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      align-items: flex-start;
+    }
+    .navbar a {
+      margin: 10px 0;
+    }
+}
+/* Chính sách bảo mật */
+#brand-privacy {
+  padding: 40px 20px;
+  background-color: #f8f7f1;
+}
+
+.brand-privacy-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.privacy-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.brand-description {
+  background-color: #ffffff;
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.brand-description h2 {
+  font-size: 1.75rem;
+  color: #123821;
+  margin-bottom: 16px;
+}
+
+.brand-description h3 {
+  font-size: 1.25rem;
+  color: #123821;
+  margin-top: 16px;
+}
+
+.brand-description p {
+  color: #333333;
+  line-height: 1.6;
+  margin: 12px 0;
+}
+
+.brand-description ol {
+  margin-left: 20px;
+  color: #333333;
+  line-height: 1.6;
+}
+
+.brand-description ol li {
+  margin-bottom: 8px;
+}
+
+.brand-description ol li:last-child {
+  margin-bottom: 0;
+}
+
+/* Đảm bảo phần footer không bị ảnh hưởng */
+.footer {
+  margin-top: 40px; /* Khoảng cách an toàn giữa chính sách và footer */
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #123821;
+    color: #f8f7f1;
+    padding: 40px 20px;
+    background-size: 50%; /* Ảnh sẽ bao phủ toàn bộ khung */
+    background-position: bottom; /* Ảnh được căn giữa */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .footer-list {
+    list-style: none;
+    color: #79817c;
+    padding: 0;
+  }
+  
+  .footer-link {
+    color: #79817c;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline;
+    color: #f8f7f1;
+  }
+  
+  /* Social Media Icons */
+  .social-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-link {
+    font-size: 1.5rem;
+    color: #f8f7f1;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .social-link:hover {
+    opacity: 0.8;
+  }
+  
+  /* Social Media Icon Hover Colors */
+  .social-link.facebook:hover {
+    color: #3b5998;
+  }
+  
+  .social-link.twitter:hover {
+    color: #1da1f2;
+  }
+  
+  .social-link.instagram:hover {
+    color: #e4405f;
+  }
+  
+  .social-link.linkedin:hover {
+    color: #0077b5;
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    color: #79817c;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.875rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Q Airlines Website</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header1">
+      <div class="container1">
+        <div class="logo-container1">
+          <img
+            alt="Logo Q Airlines"
+            class="logo1"
+            src="images-airplane/logo_icon_final.png"
+          />
+        </div>
+        <div class="header-right1">
+          <a href="login.html">Đăng nhập</a>
+<a href="register.html">Đăng ký</a>
+
+<a href="FAQ.html">Trợ giúp <i class="fas fa-info-circle"></i></a>
+        </div>
+      </div>
+    </header>
+
+
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="dropdown">
+        <a href="index.html">Chuyến bay <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="arrival-destinations.html" class="dropdown-item">Điểm đến</a>
+          <a href="lich-bay.html" class="dropdown-item">Lịch bay</a>
+          <a href="Offers.html" class="dropdown-item">Ưu đãi</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="#">Thông tin hành trình <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="check-in.html" class="dropdown-item">Check-in</a>
+          <a href="Airport Informations.html" class="dropdown-item">Thông tin sân bay</a>
+          <a href="cbct.html" class="dropdown-item">Chuyến bay của tôi</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="#">Dịch vụ <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="Support Services.html" class="dropdown-item">Dịch vụ hỗ trợ</a>
+          <a href="Special Services.html" class="dropdown-item">Dịch vụ đặc biệt</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="index.html">Mua vé <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="index.html" class="dropdown-item">Đặt mua</a>
+          <a href="Purchase Instructions.html" class="dropdown-item">Hướng dẫn mua</a>
+          <a href="Payments.html" class="dropdown-item">Thanh toán</a>
+          <a href="Taxes-Fees-Surcharges.html" class="dropdown-item">Thuế - Lệ phí</a>
+          <a href="Taxes-Fees-Surcharges.html" class="dropdown-item">Phụ thu</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <img
+        alt="Ảnh nền máy bay"
+        src="images-airplane/cloud-1.1.png"
+        class="hero-image"
+      />
+      <div class="booking-container">
+        <div class="header">
+         <label><input type="radio" name="trip" value="Một chiều" id="one-way" checked>Một chiều
+         </label>
+
+          <label><input type="radio" name="trip" value="Khứ hồi" id="round-trip">Khứ hồi
+        </label>
+
+        </div>
+        
+        <div class="form-group">
+          <input id="departure-city" type="text" placeholder="Điểm khởi hành" oninput="getCities('departure')" />
+          <div id="departure-cities-dropdown" class="dropdown-list"></div> <!-- Dropdown điểm khởi hành -->
+          <input type="date" id="departure-date" placeholder="Ngày đi" />
+        </div>
+        
+        <div class="form-group">
+          <input id="arrival-city" type="text" placeholder="Điểm đến" oninput="getCities('arrival')" />
+          <div id="arrival-cities-dropdown" class="dropdown-list"></div> <!-- Dropdown điểm đến -->
+          <input type="date" id="arrival-date" placeholder="Ngày về" />
+        </div>
+      
+        <div>
+          <input type="number" id="passenger-count" placeholder="Số hành khách" min="1" max="10" required class="passenger-input" />
+        </div>
+      
+        <button class="btn" onclick="searchFlights()">Tìm chuyến bay</button>
+      </div>
+      
+      <script>
+        let cities = []; // Mảng lưu danh sách thành phố
+      
+        // Hàm lấy danh sách thành phố từ backend
+        function getCities(type) {
+          const query = document.getElementById(type === 'departure' ? 'departure-city' : 'arrival-city').value;
+      
+          // Gửi yêu cầu tới backend để lấy danh sách thành phố
+          fetch(`/getCities?query=${query}`)
+            .then(response => response.json())
+            .then(data => {
+              cities = data; // Gán danh sách thành phố vào mảng
+              showCityDropdown(type);
+            });
+        }
+      
+        // Hiển thị danh sách thành phố dưới dropdown
+        function showCityDropdown(type) {
+          const dropdown = document.getElementById(type === 'departure' ? 'departure-cities-dropdown' : 'arrival-cities-dropdown');
+          dropdown.innerHTML = ''; // Xóa danh sách cũ
+      
+          // Thêm các thành phố vào dropdown
+          cities.forEach(city => {
+            const cityElement = document.createElement('div');
+            cityElement.innerText = city.name; // Giả sử city có thuộc tính name
+            cityElement.onclick = () => selectCity(type, city);
+            dropdown.appendChild(cityElement);
+          });
+        }
+      
+        // Chọn thành phố từ dropdown
+        function selectCity(type, city) {
+          document.getElementById(type === 'departure' ? 'departure-city' : 'arrival-city').value = city.name;
+          document.getElementById(type === 'departure' ? 'departure-cities-dropdown' : 'arrival-cities-dropdown').innerHTML = ''; // Ẩn dropdown
+        }
+      
+        function searchFlights() {
+          const passengers = document.getElementById('passenger-count').value; // Số hành khách từ input
+
+          // Lưu số lượng hành khách vào sessionStorage
+          sessionStorage.setItem('passengerCount', passengers);
+
+          // Lưu loại chuyến đi vào sessionStorage
+const tripType = document.querySelector('input[name="trip"]:checked').value;
+sessionStorage.setItem('tripType', tripType === 'Khứ hồi' ? 'roundTrip' : 'oneWay');
+
+// Lấy thông tin chuyến bay
+const departureCity = document.getElementById('departure-city').value;
+const arrivalCity = document.getElementById('arrival-city').value;
+const departureDate = document.getElementById('departure-date').value;
+const arrivalDate = tripType === 'Khứ hồi' ? document.getElementById('arrival-date').value : null;
+
+// Gửi yêu cầu tìm chuyến bay tới backend
+fetch(`/searchFlights?tripType=${tripType}&departureCity=${departureCity}&arrivalCity=${arrivalCity}&departureDate=${departureDate}&arrivalDate=${arrivalDate}&passengers=${passengers}`)
+    .then(response => response.json())
+    .then(data => {
+        console.log('Fetched flight data:', data); // Log dữ liệu để kiểm tra
+        // Chuyển hướng tới trang kết quả tìm kiếm
+        window.location.href = '/searchResults.html?data=' + encodeURIComponent(JSON.stringify(data));
+    });
+
+}
+
+
+      </script>
+      
+    </section>
+
+    <!-- Đôi nét về thương hiệu -->
+    <section id="brand-introduction">
+      <div class="container">
+        <div class="grid">
+          <!-- Thông tin giới thiệu về thương hiệu -->
+          <div class="brand-description">
+            <h2>Đôi nét về QAirline</h2>
+            <p>
+              QAirline là một thương hiệu hàng không quốc tế với sứ mệnh mang đến
+              những trải nghiệm bay tuyệt vời cho khách hàng. Với đội ngũ nhân
+              viên chuyên nghiệp, dịch vụ vượt trội và công nghệ tiên tiến,
+              chúng tôi cam kết mang lại sự an toàn, thoải mái và tiện lợi cho
+              hành khách trên mọi chuyến bay.
+            </p>
+            <div>
+              <h3>Sứ mệnh của chúng tôi</h3>
+              <p>
+                Đem lại những trải nghiệm bay an toàn, nhanh chóng và tiện nghi,
+                phục vụ khách hàng với sự tận tâm và chất lượng dịch vụ hàng
+                đầu.
+              </p>
+            </div>
+
+            <div>
+              <h3>Tầm nhìn</h3>
+              <p>
+                Trở thành một trong những hãng hàng không hàng đầu thế giới,
+                được khách hàng tin tưởng và lựa chọn trong mọi hành trình.
+              </p>
+            </div>
+
+            <div>
+              <h3>Giá trị cốt lõi</h3>
+              <ul>
+                <li>Chất lượng dịch vụ vượt trội</li>
+                <li>An toàn và tin cậy</li>
+                <li>Chú trọng đến trải nghiệm khách hàng</li>
+                <li>Liên tục đổi mới và sáng tạo</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Hình ảnh thương hiệu -->
+          <div>
+            <img
+              src="images-airplane/we-do-bg.jpg"
+              alt="Hình ảnh thương hiệu BAAE"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Du lịch hấp dẫn -->
+    <!-- Du lịch hấp dẫn -->
+    <section id="travel-destinations">
+      <div class="container travel-section">
+        <h1>Khám Phá Các Điểm Đến Hấp Dẫn</h1>
+        <div class="cards">
+          <div class="card">
+            <a href="destination-details-1.html">
+            <img
+              alt="Cảnh đẹp Hà Nội"
+              src="images-airplane/destination-1-1.jpg"
+            />
+            <div class="card-content">
+              <p>Hà Nội</p>
+            </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="destination-details-2.html">
+            <img
+              alt="Cảnh đẹp TP Hồ Chí Minh"
+              src="images-airplane/destination-1-2.jpg"
+            />
+            <div class="card-content">
+              <p>TP Hồ Chí Minh</p>
+            </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="destination-details-3.html">
+            <img
+              alt="Cảnh đẹp Đà Nẵng"
+              src="images-airplane/destination-1-3.jpg"
+            />
+            <div class="card-content">
+              <p>Đà Nẵng</p>
+            </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="destination-details-4.html">
+            <img
+              alt="Cảnh đẹp Paris"
+              src="images-airplane/destination-2-1.jpg"
+            />
+            <div class="card-content">
+              <p>Paris</p>
+            </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="destination-details-5.html">
+            <img
+              alt="Cảnh đẹp London"
+              src="images-airplane/destination-2-2.jpg"
+            />
+            <div class="card-content">
+              <p>London</p>
+            </div>
+            </a>
+          </div>
+          <div class="card">
+            <a href="destination-details-6.html">
+            <img
+              alt="Cảnh đẹp Madrid"
+              src="images-airplane/destination-2-3.jpg"
+            />
+            <div class="card-content">
+              <p>Madrid</p>
+            </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CT Khuyến mãi QAirline -->
+<section id="promotion-section" class="promotion-section">
+  <h1>Thông tin đáng chú ý</h1>
+  <div class="container">
+    <div class="grid" id="promotionGrid">
+      <!-- Các thẻ khuyến mãi sẽ được thêm vào đây bằng JavaScript -->
+       <!-- Khuyến mãi vé máy bay (Thực tế từ cơ sở dữ liệu) -->
+<div class="promotion-card" id="promotion1">
+  <img id="promoImage1" src="" alt="Khuyến mãi vé máy bay" />
+  <div class="card-body">
+    <h2 id="promoTitle1"></h2>
+    <p id="promoParagraph1"></p>
+  </div>
+</div>
+
+<!-- Gửi hàng nhanh (Thực tế từ cơ sở dữ liệu) -->
+<div class="promotion-card" id="promotion2">
+  <img id="promoImage2" src="" alt="Gửi hàng nhanh" />
+  <div class="card-body">
+    <h2 id="promoTitle2"></h2>
+    <p id="promoParagraph2"></p>
+  </div>
+</div>
+
+    </div>
+  </div>
+  <script>
+  // Hàm để lấy thông tin khuyến mãi từ bảng 'info' và hiển thị lên giao diện
+function fetchPromotions() {
+  fetch('/getInfo')  // Gửi yêu cầu GET đến server
+    .then(response => response.json())  // Chuyển đổi dữ liệu trả về thành JSON
+    .then(data => {
+      const promotionGrid = document.getElementById('promotionGrid');
+      promotionGrid.innerHTML = ''; // Xóa nội dung cũ
+
+      data.forEach((promo, index) => {
+        // Tạo một thẻ khuyến mãi
+        const promoCard = document.createElement('div');
+        promoCard.classList.add('promotion-card');
+
+        // Thêm hình ảnh
+        const img = document.createElement('img');
+        img.src = promo.picture;
+        img.alt = promo.title;
+
+        // Thêm nội dung
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
+
+        const title = document.createElement('h2');
+        title.innerText = promo.title;
+
+        const paragraph = document.createElement('p');
+        paragraph.innerText = promo.paragraph;
+
+        // Thêm các phần tử vào thẻ khuyến mãi
+        cardBody.appendChild(title);
+        cardBody.appendChild(paragraph);
+        promoCard.appendChild(img);
+        promoCard.appendChild(cardBody);
+
+        // Thêm thẻ khuyến mãi vào lưới
+        promotionGrid.appendChild(promoCard);
+      });
+    })
+    .catch(error => {
+      console.error('Lỗi khi lấy dữ liệu:', error);
+    });
+}
+
+// Gọi hàm khi trang được tải
+window.onload = fetchPromotions;
+</script>
+</section>
+
+
+    <!-- Customer Feedback Section -->
+    <section class="customer-feedback">
+      <div class="container">
+        <h2 class="section-title">Phản Hồi Của Khách Hàng</h2>
+
+        <!-- Feedback Cards Container -->
+        <div class="feedback-cards">
+          <!-- Feedback Card 1 -->
+          <div class="feedback-card">
+            <div class="feedback-header">
+              <img
+                src="images-airplane/customer 1-1.png"
+                alt="Avatar"
+                class="avatar"
+              />
+              <div>
+                <h4 class="feedback-name">Chị Khánh Linh</h4>
+                <p class="feedback-status">Khách hàng thân thiết</p>
+              </div>
+            </div>
+            <p class="feedback-text">
+              "Dịch vụ bay tuyệt vời, chuyến bay luôn đúng giờ, và đội ngũ nhân
+              viên rất chu đáo. Tôi rất hài lòng với QAirline!"
+            </p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+
+          <!-- Feedback Card 2 -->
+          <div class="feedback-card">
+            <div class="feedback-header">
+              <img
+                src="images-airplane/customer 1-2.png"
+                alt="Avatar"
+                class="avatar"
+              />
+              <div>
+                <h4 class="feedback-name">Anh Hải Anh</h4>
+                <p class="feedback-status">Khách hàng mới</p>
+              </div>
+            </div>
+            <p class="feedback-text">
+              "Hành trình từ Hà Nội đến TP. Hồ Chí Minh rất suôn sẻ. Tôi đã được
+              hỗ trợ nhanh chóng khi có vấn đề xảy ra. Sẽ tiếp tục đồng hành
+              cùng QAirline!"
+            </p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+
+          <!-- Feedback Card 3 -->
+          <div class="feedback-card">
+            <div class="feedback-header">
+              <img
+                src="images-airplane/customer 1-3.png"
+                alt="Avatar"
+                class="avatar"
+              />
+              <div>
+                <h4 class="feedback-name">Cô Minh Hằng</h4>
+                <p class="feedback-status">Khách hàng thân thiết</p>
+              </div>
+            </div>
+            <p class="feedback-text">
+              "Đặt vé nhanh chóng, dễ dàng. Chuyến bay luôn sạch sẽ và dịch vụ
+              của phi hành đoàn rất thân thiện. Tôi cảm thấy rất an tâm khi bay
+              cùng QAirline!"
+            </p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Feedbacks (Initially Hidden) -->
+        <div id="additional-feedbacks" class="feedback-cards hidden">
+          <!-- Feedback Card 4 -->
+          <div class="feedback-card">
+            <div class="feedback-header">
+              <img
+                src="images-airplane/customer 2-1.png"
+                alt="Avatar"
+                class="avatar"
+              />
+              <div>
+                <h4 class="feedback-name">Anh Khánh Duy</h4>
+                <p class="feedback-status">Khách hàng thân thiết</p>
+              </div>
+            </div>
+            <p class="feedback-text">
+              "Tôi rất ấn tượng với sự chuyên nghiệp của đội ngũ nhân viên và
+              chất lượng dịch vụ. Chắc chắn tôi sẽ tiếp tục sử dụng dịch vụ của
+              QAirline trong tương lai!"
+            </p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+
+          <!-- Feedback Card 5 -->
+          <div class="feedback-card">
+            <div class="feedback-header">
+              <img
+                src="images-airplane/customer 2-2.png"
+                alt="Avatar"
+                class="avatar"
+              />
+              <div>
+                <h4 class="feedback-name">Bác Yến Thy</h4>
+                <p class="feedback-status">Khách hàng mới</p>
+              </div>
+            </div>
+            <p class="feedback-text">
+              "Dịch vụ đặt vé trực tuyến rất dễ dàng, nhanh chóng. Chuyến bay
+              thoải mái, phi hành đoàn luôn thân thiện và chu đáo!"
+            </p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+
+          <!-- Feedback Card 6 -->
+          <div class="feedback-card">
+            <div class="feedback-header">
+              <img
+                src="images-airplane/customer 2-3.png"
+                alt="Avatar"
+                class="avatar"
+              />
+              <div>
+                <h4 class="feedback-name">Anh Gia Bách</h4>
+                <p class="feedback-status">Khách hàng thân thiết</p>
+              </div>
+            </div>
+            <p class="feedback-text">
+              "Dịch vụ tuyệt vời từ việc hỗ trợ khách hàng cho đến chất lượng
+              chuyến bay. Mọi thứ đều hoàn hảo, tôi rất ấn tượng!"
+            </p>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button to load more feedback -->
+        <div class="text-center">
+          <button
+            id="load-more-feedback"
+            class="load-more-button"
+            onclick="toggleFeedback()"
+          >
+            Xem thêm
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function toggleFeedback() {
+        const additionalFeedbacks = document.getElementById(
+          "additional-feedbacks"
+        );
+        const button = document.getElementById("load-more-feedback");
+
+        // Toggle visibility of additional feedbacks
+        additionalFeedbacks.classList.toggle("hidden");
+
+        // Change button text based on visibility
+        if (additionalFeedbacks.classList.contains("hidden")) {
+          button.textContent = "Xem thêm";
+        } else {
+          button.textContent = "Ẩn bớt";
+        }
+      }
+    </script>
+
+    <!-- Footer -->
+<footer class="footer" style="background-image: url(images-airplane/site-footer-shape-1.png)">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Liên kết nhanh -->
+      <div class="footer-section">
+        <h3 class="footer-title">Liên kết nhanh</h3>
+        <ul class="footer-list">
+          <li><a href="index.html" class="footer-link">Trang chủ</a></li>
+          <li><a href="index.html" class="footer-link">Chuyến bay</a></li>
+          <li><a href="index.html" class="footer-link">Mua vé</a></li>
+          <li><a href="index.html" class="footer-link">Thông tin hành trình</a></li>
+          <li><a href="index.html" class="footer-link">Dịch vụ khách hàng</a></li>
+        </ul>
+      </div>
+
+      <!-- Liên hệ -->
+      <div class="footer-section">
+        <h3 class="footer-title">Liên hệ</h3>
+        <ul class="footer-list">
+          <li>
+            Email:
+            <a href="mailto:support@baae.com" class="footer-link"
+              >support@qairline.com</a
+            >
+          </li>
+          <li>
+            Điện thoại:
+            <a href="tel:+84912345678" class="footer-link">+84 123456789</a>
+          </li>
+          <li>Địa chỉ: 40 Hàng Bài, Hoàn Kiếm, Hà Nội</li>
+        </ul>
+      </div>
+
+<!-- Chính sách và điều khoản -->
+<div class="footer-section">
+<h3 class="footer-title">Chính sách</h3>
+<ul class="footer-list">
+<li><a href="Privacy Policy.html" class="footer-link">Chính sách bảo mật</a></li>
+<li><a href="Term of Services.html" class="footer-link">Điều khoản dịch vụ</a></li>
+<li><a href="Refund Policy.html" class="footer-link">Chính sách hoàn tiền</a></li>
+<li>
+  <a href="FAQ.html" class="footer-link">FAQ (Câu hỏi thường gặp)</a>
+</li>
+</ul>
+</div>
+      <!-- Mạng xã hội -->
+      <div class="footer-section">
+        <h3 class="footer-title">Kết nối với chúng tôi</h3>
+        <div class="social-links">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            class="social-link facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            class="social-link twitter"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            class="social-link instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            class="social-link linkedin"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 QAirline. Tất cả quyền lợi được bảo lưu.</p>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

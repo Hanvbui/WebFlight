@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Q Airlines Website</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="register.css" />
+  </head>
+    <!-- Header -->
+    <header class="header1">
+      <div class="container1">
+        <div class="logo-container1">
+            <a href="index.html">  <!-- bám vào logo quay về trang chủ -->  
+            <img
+              alt="Logo Q Airlines"
+              class="logo1"
+              src="images-airplane/logo_icon_final.png"
+            />
+          </a>
+        </div>
+        <div class="header-right1">
+          <a href="login.html">Đăng nhập</a>
+          <a href="FAQ.html">Trợ giúp <i class="fas fa-info-circle"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="dropdown">
+        <a href="index.html">Chuyến bay <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="arrival-destinations.html" class="dropdown-item">Điểm đến</a>
+          <a href="lich-bay.html" class="dropdown-item">Lịch bay</a>
+          <a href="Offers.html" class="dropdown-item">Ưu đãi</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="#">Thông tin hành trình <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="check-in.html" class="dropdown-item">Check-in</a>
+          <a href="Airport Informations.html" class="dropdown-item">Thông tin sân bay</a>
+          <a href="cbct.html" class="dropdown-item">Chuyến bay của tôi</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="#">Dịch vụ <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="Support Services.html" class="dropdown-item">Dịch vụ hỗ trợ</a>
+          <a href="Special Services.html" class="dropdown-item">Dịch vụ đặc biệt</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="index.html">Mua vé <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="index.html" class="dropdown-item">Đặt mua</a>
+          <a href="Purchase Instructions.html" class="dropdown-item">Hướng dẫn mua</a>
+          <a href="Payments.html" class="dropdown-item">Thanh toán</a>
+          <a href="Taxes-Fees-Surcharges.html" class="dropdown-item">Thuế - Lệ phí</a>
+          <a href="Taxes-Fees-Surcharges.html" class="dropdown-item">Phụ thu</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-container">
+  <div class="auth-container">
+    <h2 class="text-xl font-bold mb-4">Đăng ký</h2>
+    <form id="registerForm">
+      <div class="mb-4">
+        <label for="fname" class="block text-gray-700">Họ</label>
+        <input type="text" id="fname" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Nhập họ" required />
+      </div>
+      <div class="mb-4">
+        <label for="lname" class="block text-gray-700">Tên</label>
+        <input type="text" id="lname" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Nhập tên" required />
+      </div>
+      <div class="mb-4">
+        <label for="email" class="block text-gray-700">Email</label>
+        <input type="email" id="email" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Nhập email" required />
+      </div>
+      <div class="mb-4">
+        <label for="password" class="block text-gray-700">Mật khẩu</label>
+        <input type="password" id="password" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Nhập mật khẩu" required />
+      </div>
+      <div class="mb-4">
+        <label for="confirmPassword" class="block text-gray-700">Xác nhận mật khẩu</label>
+        <input type="password" id="confirmPassword" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Nhập lại mật khẩu" required />
+      </div>
+      <div class="mb-4">
+        <label for="sex" class="block text-gray-700">Giới tính</label>
+        <select id="sex" class="w-full p-2 border border-gray-300 rounded-lg" required>
+          <option value="M">Nam</option>
+          <option value="F">Nữ</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label for="address" class="block text-gray-700">Địa chỉ</label>
+        <input type="text" id="address" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Nhập địa chỉ" />
+      </div>
+      <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600">Đăng ký</button>
+    </form>
+  </div>
+    </div>
+<!-- Footer -->
+<footer class="footer" style="background-image: url(images-airplane/site-footer-shape-1.png)">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Liên kết nhanh -->
+      <div class="footer-section">
+        <h3 class="footer-title">Liên kết nhanh</h3>
+        <ul class="footer-list">
+          <li><a href="index.html" class="footer-link">Trang chủ</a></li>
+          <li><a href="index.html" class="footer-link">Chuyến bay</a></li>
+          <li><a href="index.html" class="footer-link">Mua vé</a></li>
+          <li><a href="index.html" class="footer-link">Thông tin hành trình</a></li>
+          <li><a href="index.html" class="footer-link">Dịch vụ khách hàng</a></li>
+        </ul>
+      </div>
+
+      <!-- Liên hệ -->
+      <div class="footer-section">
+        <h3 class="footer-title">Liên hệ</h3>
+        <ul class="footer-list">
+          <li>
+            Email:
+            <a href="mailto:support@baae.com" class="footer-link"
+              >support@qairline.com</a
+            >
+          </li>
+          <li>
+            Điện thoại:
+            <a href="tel:+84912345678" class="footer-link">+84 123456789</a>
+          </li>
+          <li>Địa chỉ: 40 Hàng Bài, Hoàn Kiếm, Hà Nội</li>
+        </ul>
+      </div>
+
+<!-- Chính sách và điều khoản -->
+<div class="footer-section">
+<h3 class="footer-title">Chính sách</h3>
+<ul class="footer-list">
+<li><a href="Privacy Policy.html" class="footer-link">Chính sách bảo mật</a></li>
+<li><a href="Term of Services.html" class="footer-link">Điều khoản dịch vụ</a></li>
+<li><a href="Refund Policy.html" class="footer-link">Chính sách hoàn tiền</a></li>
+<li>
+  <a href="FAQ.html" class="footer-link">FAQ (Câu hỏi thường gặp)</a>
+</li>
+</ul>
+</div>
+      <!-- Mạng xã hội -->
+      <div class="footer-section">
+        <h3 class="footer-title">Kết nối với chúng tôi</h3>
+        <div class="social-links">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            class="social-link facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            class="social-link twitter"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            class="social-link instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            class="social-link linkedin"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 QAirline. Tất cả quyền lợi được bảo lưu.</p>
+    </div>
+  </div>
+</footer>
+  <script>
+    document.getElementById('registerForm').onsubmit = function (event) {
+      event.preventDefault();
+
+      const fname = document.getElementById('fname').value;
+      const lname = document.getElementById('lname').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const sex = document.getElementById('sex').value;  // Lấy giá trị giới tính
+      const address = document.getElementById('address').value;  // Lấy giá trị địa chỉ
+
+      if (password !== confirmPassword) {
+        alert('Mật khẩu và xác nhận mật khẩu không khớp');
+        return;
+      }
+
+      fetch('/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ fname, lname, email, password, sex, address }), // Gửi thêm sex và address
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          alert('Đăng ký thành công');
+          window.location.href = 'login.html';  // Chuyển hướng về trang đăng nhập sau khi đăng ký thành công
+        } else {
+          alert(data.message || 'Đăng ký thất bại');
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('Đã xảy ra lỗi khi đăng ký');
+      });
+    };
+  </script>
+</body>
+</html>

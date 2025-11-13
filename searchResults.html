@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Q Airlines Website</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="searchResults.css" />
+  </head>
+    <!-- Header -->
+    <header class="header1">
+      <div class="container1">
+        <div class="logo-container1">
+            <a href="index.html">  <!-- bám vào logo quay về trang chủ -->  
+            <img
+              alt="Logo Q Airlines"
+              class="logo1"
+              src="images-airplane/logo_icon_final.png"
+            />
+          </a>
+        </div>
+        <div class="header-right1">
+          <a href="login.html">Đăng nhập</a>
+          <a href="register.html">Đăng ký</a>
+          <a href="FAQ.html">Trợ giúp <i class="fas fa-info-circle"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="dropdown">
+        <a href="index.html">Chuyến bay <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="arrival-destinations.html" class="dropdown-item">Điểm đến</a>
+          <a href="lich-bay.html" class="dropdown-item">Lịch bay</a>
+          <a href="Offers.html" class="dropdown-item">Ưu đãi</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="#">Thông tin hành trình <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="check-in.html" class="dropdown-item">Check-in</a>
+          <a href="Airport Informations.html" class="dropdown-item">Thông tin sân bay</a>
+          <a href="cbct.html" class="dropdown-item">Chuyến bay của tôi</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="#">Dịch vụ <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="Support Services.html" class="dropdown-item">Dịch vụ hỗ trợ</a>
+          <a href="Special Services.html" class="dropdown-item">Dịch vụ đặc biệt</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="index.html">Mua vé <i class="fas fa-chevron-down"></i></a>
+        <div class="dropdown-menu">
+          <a href="index.html" class="dropdown-item">Đặt mua</a>
+          <a href="Purchase Instructions.html" class="dropdown-item">Hướng dẫn mua</a>
+          <a href="Payments.html" class="dropdown-item">Thanh toán</a>
+          <a href="Taxes-Fees-Surcharges.html" class="dropdown-item">Thuế - Lệ phí</a>
+          <a href="Taxes-Fees-Surcharges.html" class="dropdown-item">Phụ thu</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-container"><div id="flightResults"></div></div>
+<!-- Footer -->
+<footer class="footer" style="background-image: url(images-airplane/site-footer-shape-1.png)">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Liên kết nhanh -->
+      <div class="footer-section">
+        <h3 class="footer-title">Liên kết nhanh</h3>
+        <ul class="footer-list">
+          <li><a href="index.html" class="footer-link">Trang chủ</a></li>
+          <li><a href="index.html" class="footer-link">Chuyến bay</a></li>
+          <li><a href="index.html" class="footer-link">Mua vé</a></li>
+          <li><a href="index.html" class="footer-link">Thông tin hành trình</a></li>
+          <li><a href="index.html" class="footer-link">Dịch vụ khách hàng</a></li>
+        </ul>
+      </div>
+
+      <!-- Liên hệ -->
+      <div class="footer-section">
+        <h3 class="footer-title">Liên hệ</h3>
+        <ul class="footer-list">
+          <li>
+            Email:
+            <a href="mailto:support@baae.com" class="footer-link"
+              >support@qairline.com</a
+            >
+          </li>
+          <li>
+            Điện thoại:
+            <a href="tel:+84912345678" class="footer-link">+84 123456789</a>
+          </li>
+          <li>Địa chỉ: 40 Hàng Bài, Hoàn Kiếm, Hà Nội</li>
+        </ul>
+      </div>
+
+<!-- Chính sách và điều khoản -->
+<div class="footer-section">
+<h3 class="footer-title">Chính sách</h3>
+<ul class="footer-list">
+<li><a href="Privacy Policy.html" class="footer-link">Chính sách bảo mật</a></li>
+<li><a href="Term of Services.html" class="footer-link">Điều khoản dịch vụ</a></li>
+<li><a href="Refund Policy.html" class="footer-link">Chính sách hoàn tiền</a></li>
+<li>
+  <a href="FAQ.html" class="footer-link">FAQ (Câu hỏi thường gặp)</a>
+</li>
+</ul>
+</div>
+      <!-- Mạng xã hội -->
+      <div class="footer-section">
+        <h3 class="footer-title">Kết nối với chúng tôi</h3>
+        <div class="social-links">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            class="social-link facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            class="social-link twitter"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            class="social-link instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            class="social-link linkedin"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 QAirline. Tất cả quyền lợi được bảo lưu.</p>
+    </div>
+  </div>
+</footer>
+<script>
+// Lấy số lượng hành khách từ sessionStorage
+const passengerCount = sessionStorage.getItem('passengerCount');
+if (passengerCount) {
+    console.log(`Số hành khách: ${passengerCount}`);
+}
+
+// Dữ liệu chuyến bay
+const queryParams = new URLSearchParams(window.location.search);
+let flightData = [];
+try {
+    flightData = JSON.parse(decodeURIComponent(queryParams.get('data')) || '[]');
+} catch (error) {
+    console.error('Error parsing flight data:', error);
+}
+
+// Phần tử hiển thị kết quả
+const flightResults = document.getElementById('flightResults');
+
+// Kiểm tra loại chuyến đi từ sessionStorage
+const tripType = sessionStorage.getItem('tripType'); // 'oneWay' hoặc 'roundTrip'
+
+// Hiển thị kết quả theo loại chuyến đi
+if (flightData.error) {
+    flightResults.innerHTML = `<p>Lỗi: ${flightData.error}</p>`;
+} else if (Array.isArray(flightData)) {
+    if (tripType === 'oneWay') {
+        // Hiển thị chuyến bay đi
+        const outboundFlights = flightData.filter(flight => flight.trip_type === 'outbound');
+
+        if (outboundFlights.length > 0) {
+            const outboundTitle = document.createElement('h2');
+            outboundTitle.textContent = 'Chuyến bay đi:';
+            flightResults.appendChild(outboundTitle);
+
+            outboundFlights.forEach((flight, index) => {
+                const flightDiv = document.createElement('div');
+                flightDiv.innerHTML = `
+                  <h3>Chuyến bay ${index + 1}</h3>
+                  <p>Thành phố đi: ${flight.departure_city_name}</p>
+                  <p>Thành phố đến: ${flight.arrival_city_name}</p>
+                  <p>Ngày: ${flight.d_date_time}</p>
+                  <p>Giá: ${flight.price}</p>
+                  <button onclick="selectFlight(${flight.id}, 'outbound')">Chọn chuyến bay</button>
+                `;
+                flightResults.appendChild(flightDiv);
+            });
+        } else {
+            flightResults.innerHTML = '<p>Không tìm thấy chuyến bay nào!</p>';
+        }
+    } else if (tripType === 'roundTrip') {
+        // Hiển thị cả chuyến bay đi và về
+        const outboundFlights = flightData.filter(flight => flight.trip_type === 'outbound');
+        const returnFlights = flightData.filter(flight => flight.trip_type === 'return');
+
+        // Hiển thị chuyến bay đi
+        if (outboundFlights.length > 0) {
+            const outboundTitle = document.createElement('h2');
+            outboundTitle.textContent = 'Chuyến bay đi:';
+            flightResults.appendChild(outboundTitle);
+
+            outboundFlights.forEach((flight, index) => {
+                const flightDiv = document.createElement('div');
+                flightDiv.innerHTML = `
+                  <h3>Chuyến bay ${index + 1}</h3>
+                  <p>Thành phố đi: ${flight.departure_city_name}</p>
+                  <p>Thành phố đến: ${flight.arrival_city_name}</p>
+                  <p>Ngày: ${flight.d_date_time}</p>
+                  <p>Giá: ${flight.price}</p>
+                  <button onclick="selectFlight(${flight.id}, 'outbound')">Chọn chuyến bay</button>
+                `;
+                flightResults.appendChild(flightDiv);
+            });
+        }
+
+        // Hiển thị chuyến bay về
+        if (returnFlights.length > 0) {
+            const returnTitle = document.createElement('h2');
+            returnTitle.textContent = 'Chuyến bay về:';
+            flightResults.appendChild(returnTitle);
+
+            returnFlights.forEach((flight, index) => {
+                const flightDiv = document.createElement('div');
+                flightDiv.innerHTML = `
+                  <h3>Chuyến bay ${index + 1}</h3>
+                  <p>Thành phố đi: ${flight.departure_city_name}</p>
+                  <p>Thành phố đến: ${flight.arrival_city_name}</p>
+                  <p>Ngày: ${flight.d_date_time}</p>
+                  <p>Giá: ${flight.price}</p>
+                  <button onclick="selectFlight(${flight.id}, 'return')">Chọn chuyến bay</button>
+                `;
+                flightResults.appendChild(flightDiv);
+            });
+        }
+
+        if (outboundFlights.length === 0 && returnFlights.length === 0) {
+            flightResults.innerHTML = '<p>Không tìm thấy chuyến bay nào!</p>';
+        }
+    }
+} else {
+    flightResults.innerHTML = '<p>Dữ liệu chuyến bay không hợp lệ!</p>';
+}
+
+function selectFlight(flightId, tripType) {
+    const tripPreference = sessionStorage.getItem('tripType'); // 'oneWay' hoặc 'roundTrip'
+
+    if (tripPreference === 'oneWay') {
+        sessionStorage.setItem('selectedFlight', flightId); // Lưu chuyến bay một chiều
+        console.log('Đã lưu chuyến bay một chiều:', flightId);
+        alert('Chuyến đi đã được chọn.');
+        window.location.href = '/passengerInfo.html'; // Chuyển đến trang thông tin hành khách
+    } else if (tripPreference === 'roundTrip') {
+        if (tripType === 'outbound') {
+            sessionStorage.setItem('outboundFlight', flightId); // Lưu chuyến bay đi
+            console.log('Đã lưu chuyến bay đi:', flightId);
+            alert('Chuyến đi đã được chọn. Vui lòng chọn chuyến về.');
+        } else if (tripType === 'return') {
+            sessionStorage.setItem('returnFlight', flightId); // Lưu chuyến bay về
+            console.log('Đã lưu chuyến bay về:', flightId);
+            alert('Chuyến về đã được chọn.');
+            window.location.href = '/passengerInfo.html'; // Chuyển đến trang thông tin hành khách
+        } else {
+            console.error('Loại chuyến bay không xác định!');
+        }
+    } else {
+        console.error('Loại chuyến đi không xác định trong sessionStorage!');
+    }
+}
+
+
+
+</script>
+  </body>
+
+

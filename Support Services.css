@@ -1,0 +1,348 @@
+body {
+    font-family: "Roboto", sans-serif;
+    color: #79817c;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+  }
+  
+  /* Header */
+  .header1 {
+    background-color: #123821;
+    color: white;
+    padding: 16px 24px;
+  }
+  
+  .container1 {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-container1 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo1 {
+    height: 130px;
+    margin-right: 16px;
+  }
+  
+  .header-right1 {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-right1 a {
+    margin-left: 16px;
+    color: #79817c;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .header-right1 a:hover {
+    color: #f8f7f1;
+    text-decoration: underline;
+  }
+  
+  .header-right1 a i {
+    margin-left: 5px;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+    background-color: #f8f7f1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #123821;
+    font-size: 16px;
+    margin: 0 20px;
+    position: relative;
+    font-weight: 600;
+    transition: background-color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #a79132;
+  }
+  
+  /* Dropdown */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #f8f7f1;
+    min-width: 160px;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dropdown-item {
+    padding: 12px;
+    font-size: 14px;
+    color: #123821;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f8f7f1;
+  }
+  
+  /* thêm icon vào dropdown link */
+  .navbar i {
+    margin-left: 5px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      align-items: flex-start;
+    }
+    .navbar a {
+      margin: 10px 0;
+    }
+  }
+  
+  /* Footer Styles */
+  .footer {
+    background-color: #123821;
+    color: #f8f7f1;
+    padding: 40px 20px;
+    background-size: 50%; /* Ảnh sẽ bao phủ toàn bộ khung */
+    background-position: bottom; /* Ảnh được căn giữa */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .footer-list {
+    list-style: none;
+    color: #79817c;
+    padding: 0;
+  }
+  
+  .footer-link {
+    color: #79817c;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline;
+    color: #f8f7f1;
+  }
+  
+  /* Social Media Icons */
+  .social-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-link {
+    font-size: 1.5rem;
+    color: #f8f7f1;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .social-link:hover {
+    opacity: 0.8;
+  }
+  
+  /* Social Media Icon Hover Colors */
+  .social-link.facebook:hover {
+    color: #3b5998;
+  }
+  
+  .social-link.twitter:hover {
+    color: #1da1f2;
+  }
+  
+  .social-link.instagram:hover {
+    color: #e4405f;
+  }
+  
+  .social-link.linkedin:hover {
+    color: #0077b5;
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
+    color: #79817c;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.875rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* KHUNG dv */
+  .container-altDV1 {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .card-altDV1 {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+    margin-right: 2%;
+  }
+  .card-altDV1:nth-child(2n) {
+    margin-right: 0;
+  }
+  .card-altDV1 img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  .card-content-altDV1 {
+    padding: 10px;
+  }
+  .card-content-altDV1 h3 {
+    color: #006666;
+    font-size: 16px;
+    margin: 0 0 8px;
+  }
+  .card-content-altDV1 p {
+    color: #4a4a4a;
+    font-size: 13px;
+    margin: 0 0 8px;
+  }
+  .card-content-altDV1 a {
+    color: #006666;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  
+  /* Lớp mờ khi modal hiện lên */
+  .modal-overlay1 {
+    display: none; /* Ẩn lớp theo mặc định */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Màu nền tối */
+    z-index: 9998;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* khung Modal container */
+  .modalDV1 {
+    display: none; /* Modal ẩn theo mặc định */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Độ rộng modal */
+    max-width: 600px; /* Giới hạn độ rộng modal */
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    padding: 20px;
+  }
+  
+  /* Nội dung modal */
+  .modal-contentDV1 {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    position: relative;
+    text-align: center;
+  }
+  
+  /* Tiêu đề modal */
+  #modal-titleDV1 {
+    font-size: 24px; /* Giảm kích thước tiêu đề */
+    color: #123821; /* Màu xanh đậm cho tiêu đề */
+    margin-bottom: 30px; /* Giảm khoảng cách giữa tiêu đề và nội dung */
+    font-weight: 600; /* Chữ đậm vừa phải */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Arial", sans-serif;
+    line-height: 1.3; /* Điều chỉnh line-height để các dòng được cân đối */
+  }
+  
+  /* Mô tả modal (giữ nguyên kích thước hợp lý với tiêu đề) */
+  #modal-descriptionDV1 {
+    font-size: 16px;
+    color: #555555; /* Màu chữ mềm mại */
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 30px; /* Khoảng cách dưới nội dung */
+    font-family: "Verdana", sans-serif;
+  }
+  
+  /* Nút đóng modal */
+  .closeDV1 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 36px;
+    color: #ff5252;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
